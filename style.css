@@ -1,0 +1,258 @@
+@charset "UTF-8";
+*{margin:0; padding: 0;}
+a{text-decoration: none;   /* a태그가 본래 가지고 있는 파란색 밑줄을 없앰 */
+  color: #fff;}
+li{list-style: none;}
+.container{
+    width: 1500px;
+    margin: 0 auto;       /* 항상 가운데에 올 수 있게 */
+}
+
+body{
+    width: 100%; height: 100vh;
+    background: rgba(0, 0, 0, 0.8) url(img/Cover_anni40-50_1920x800.jpg) no-repeat center;
+    background-size: cover;
+    background-blend-mode: hue;
+}
+
+.wrap{width: 100%; height: 100vh;}
+
+/* header */
+header{      /* 태그 이름 앞에는 .을 붙이지 않는다. */
+    height: 100px; width: 100%;
+    padding-top: 20px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #ddd;
+}
+header .container{
+    display: flex;
+    justify-content: space-between;  /* "logo", "menu_wrap", "search"의 양옆 간격 맞춤 */
+    align-items: center;             /* "logo", "menu_wrap", "search"의 위아래 중간을 맞춤 */
+}
+header .container .logo{width: 150px;}
+header .container .logo a{}
+header .container .logo a img{width: 100%;}
+
+header .container .menu_wrap{}
+.menu_wrap ul{
+    display: flex;    /* 자식이 옆으로 정렬됨. */
+    width: 800px;
+    justify-content: space-between;
+    }  
+header .container .menu_wrap ul li{}
+header .container .menu_wrap ul li a{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+header .container .search{}
+header .container .search i{color: #38a385; font-size: 18px;}
+
+
+
+/* main_01 */
+.main_01{margin-top: 5%;}       /* 맨위의 header를 제외한 이미지와 글자를 아래로 내림.  */
+.main_01 .slider{}
+.main_01 .slider .slick-slide{
+    display: flex;
+    overflow: hidden;     /* --> .left_area .vespa_img에 움직이는 효과를 주기 위해 넘치는 걸 숨긴다*/
+}
+
+.left_area{
+    position: relative;
+    width: 50%;}
+.left_area .vespa_img{
+    width: 120%;
+    padding-top: 160px;   
+}
+/* slick을 여러 개 넣을 때는 부르는 대상을 정확하게 호출하는 게 중요! */
+.main_01 .slider .slick-active .left_area .vespa_img{
+    animation: fadeInR 0.5s 0.5s both;    /* both는 새로고침 시, 동작을 마친 자리에서 다시 처음 지점으로 갈 때, 튕기듯 나가는 것을 막아줌. */
+    /* animation은 밑에 적힌 keyframes의 animation과 같아야 함 */
+}
+
+.left_area .vespa_img img{width: 100%;}
+.left_area .vespa_tit{
+    position: absolute;
+    left: 0; top: 90px;
+    z-index: -1;
+}
+.left_area .vespa_tit h2{
+    font-size: 135px;
+    color: rgba(255, 255, 255, 0.8);}
+.main_01 .slider .slick-active .left_area .vespa_tit h2{
+    animation: fadeInL 0.5s 0.7s both;
+}
+.left_area .vespa_tit p{
+    font-size: 19px;
+    color: #fff;
+    letter-spacing: 19px;  /* 자간 */
+}
+.main_01 .slider .slick-active .left_area .vespa_tit p{
+    animation: fadeInL 0.5s 0.9s both;
+}
+
+.right_area{
+    position: relative;
+    width: 50%;}
+.right_area .detailed_img{
+    position: absolute;
+    left: 0; top: 18%;
+    display: flex;      /* 정해진 공간의 넓이 안에서 해결하려는 성질이 있음. */ 
+    justify-content: center;}
+.right_area .detailed_img div{
+    width: 20%;         /* right area의 20% */
+    border-radius: 50%; /* =원 */
+    overflow: hidden;
+    margin-right: 8%;
+}
+.main_01 .slider .slick-active .right_area .detailed_img div{
+    animation: fadeInT 0.5s 1s both;
+    animation-timing-function: cubic-bezier(0.25, 0.1, 0.52, 1.71);
+    /* animation에 효과를 더하고 싶다면 우선 animation-timing-function: ease를 입력한 후, 개발자모드(F12)를 눌러서 테스트 해보고 복사해서 가져온다. */
+}
+.main_01 .slider .slick-active .right_area .detailed_img .d_img02{
+    animation-delay: 1.2s;
+}
+.main_01 .slider .slick-active .right_area .detailed_img .d_img03{
+    animation-delay: 1.4s;
+
+}
+
+.right_area .detailed_img img{width: 100%;}
+
+.right_area .middle_txt{
+    position: absolute;
+    top: 40%; left: 10%;
+    width: 70%;
+}
+.right_area .middle_txt p{
+    color: #fff;
+    font-size: 25px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+.right_area .middle_txt .color_mode{
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 30px;
+}
+.right_area .middle_txt .color_mode .color{
+    padding: 10px 35px;
+}
+.main_01 .slider .slick-active .right_area .middle_txt .color_mode .color{
+    animation: fadeInR 1.0s 1s both;
+}
+.main_01 .slider .slick-active .right_area .middle_txt .color_mode .c02{
+    animation-delay: 1.2s;
+}
+.right_area .middle_txt .color_mode .color i{
+    color: #b7babc;
+    font-size: 35px;
+    margin-right: 20px;
+}
+.right_area .middle_txt .color_mode .color span{
+    font-size: 16px;
+    color: #000;
+    vertical-align: 9px;
+}
+
+/* i태그나 span태그에 각각 애니메이션 넣어보기[basic14(animate) 참고]!! */
+.main_01 .slider .slick-active .right_area .middle_txt .color_mode .c01 i{}
+.main_01 .slider .slick-active .right_area .middle_txt .color_mode .c02 span{}
+
+
+.right_area .bottom_area{
+    position: absolute;
+    top: 70%; left: 10%;
+    display: flex;
+}
+.main_01 .slider .slick-active .right_area .bottom_area .custom_btn{
+    animation: fadeInB 1s 0.7s both;
+}
+.main_01 .slider .slick-active .right_area .bottom_area .download_btn{
+    animation: fadeInB 1s 1.0s both;
+}
+.main_01 .slider .slick-active .right_area .bottom_area .price{
+    animation: fadeInB 1s 1.3s both;
+}
+
+.right_area .bottom_area .custom_btn{
+    position: relative;
+    border: 2px solid #fff;
+    margin-right: 20px;
+}
+.right_area .bottom_area .custom_btn a{
+    display: block;    /* 블록요소로 바꿔서 높이에 변화를 줌. */
+    padding: 10px 50px 10px 30px;
+}
+.right_area .bottom_area .custom_btn i{
+    position: absolute;
+    right: 22px; top: 12px;
+    font-size: 20px; color: #fff;
+}
+
+.right_area .bottom_area .download_btn{
+    background-color: #38a385;
+    margin-right: 30px;
+}
+.right_area .bottom_area .download_btn a{
+    display: block;
+    padding: 10px 20px;
+    font-weight: 600;
+}
+
+.right_area .bottom_area .price{}
+.right_area .bottom_area .price span{
+    color: #fff;
+    font-size: 24px; line-height: 40px;}
+
+
+/* slick버튼 */
+.main_01 .slider .slick-arrow{
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    visibility: hidden;
+    font-size: 0;    /* --> 삽입한 화살표가 좀 더 옆으로 떨어짐 */
+}
+.main_01 .slider .slick-prev{left: -2%}
+.main_01 .slider .slick-prev:after{
+    content: "\f053";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    visibility: visible;
+    color: #38a385;
+    font-size: 48px;
+}
+.main_01 .slider .slick-next{right: -2%;}  /* 위에 left: 50%이 있으므로 그것을 풀어주기 위해 아래에 left: auto를 작성. 아니면 둘 다 지운다. */
+.main_01 .slider .slick-next:after{
+    content: "\f054";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    visibility: visible;
+    color: #38a385;
+    font-size: 48px;
+}
+
+
+@keyframes fadeInR{   /* R --> L */
+    0%{transform: translateX(150%); opacity: 0;} /* animation 실행 전엔 안 보이다가 실행하면 보임. */
+    100%{transform: translateX(0%); opacity: 1;}
+}
+
+@keyframes fadeInL{   /* L --> R */
+    0%{transform: translateX(-150%); opacity: 0;} 
+    100%{transform: translateX(0%); opacity: 1;}
+}
+
+@keyframes fadeInT{   /* T --> B */
+    0%{transform: translateY(-150%); opacity: 0;} 
+    100%{transform: translateY(0%); opacity: 1;}
+}
+
+@keyframes fadeInB{
+    0%{transform: translateY(150%); opacity: 0;} 
+    100%{transform: translateY(0%); opacity: 1;}
+}
+
+
